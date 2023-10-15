@@ -45,10 +45,10 @@ stdin.on("data", (key) => {
     // Interval function to print every 400ms
     const intervalID = setInterval(() => {
       if (index < items.length) {
-      stdout.write(`\r${items[index]}`);
-      index++
+        stdout.write(`\r${items[index]}`);
+        index++;
       }
-    }, interval)
+    }, interval);
 
     
     setTimeout(() => {
