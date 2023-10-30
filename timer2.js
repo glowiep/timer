@@ -40,13 +40,13 @@ stdin.on("data", (key) => {
     stdout.write(`${chalk.yellowBright(`\nSetting Timer for ${key} seconds...\n`)}`);
     
     const interval = 500;     // 500 ms
-    const items = ['|   ', '/   ', '-   ', '\\   ', '|   ', '/   ', '-   ', '\\   ', '|   ', '/   ', '-   ', '\\   ', '|   ', '/   ', '-   ', '\\   ', '|   ', '/   ', '-   ', '\\   ', '|   \n'];
+    const items = ['|   ', '/   ', '-   ', '\\   '];
     let index = 0;
     // Interval function to print every 400ms
     const intervalID = setInterval(() => {
       if (index < items.length) {
         stdout.write(`\r${items[index]}`);
-        index++;
+        index = (index + 1) % items.length; // Will iterate over the spin symbols in a cyclical manner
       }
     }, interval);
 
